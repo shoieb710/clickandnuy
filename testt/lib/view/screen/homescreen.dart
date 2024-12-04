@@ -19,11 +19,11 @@ class Homescreen extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           elevation: 8,
             backgroundColor: ColorApp.logo,
-            onPressed: () {},
-            child: Icon(Icons.person_outlined)),
+            onPressed: () {controlar.gotocart();},
+            child: Icon(Icons.shopping_cart_outlined,color: ColorApp.white,)),
         floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
         drawerScrimColor: ColorApp.logoshadw,
-        backgroundColor: ColorApp.white,
+
         drawer: Drawer(),
         appBar: AppBar(
           iconTheme: IconThemeData(size: 30),
@@ -74,6 +74,7 @@ class Homescreen extends StatelessWidget {
             color: ColorApp.logo,
             shape: CircularNotchedRectangle(),
             notchMargin: 18,
+            height: 60,
             child: Row(
 
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -86,7 +87,7 @@ class Homescreen extends StatelessWidget {
                       flex: 2,
                       child: Custombuttonappbar(
                         
-                          text: controlar.titel[i],
+                          // text: controlar.titel[i],
                           icon: controlar.icons[i],
                           onPressed: () {
                             cont.makefavlist();

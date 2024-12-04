@@ -2,6 +2,7 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:testt/core/constant/rout.dart';
 import 'package:testt/core/middlware/mymiddlware.dart';
+import 'package:testt/view/screen/cart.dart';
 import 'package:testt/view/screen/ditaels.dart';
 
 import 'package:testt/view/screen/auth/forgetpass/forgetpassword.dart';
@@ -33,6 +34,7 @@ List<GetPage<dynamic>>? getPages =[
   GetPage(name: AppRoute.itemdetales, page: ()=>const Itemsdetiels()),
   GetPage(name: AppRoute.favoritepagr, page: ()=>const FavoritePage()),
   GetPage(name: AppRoute.settings, page: ()=>const Settings()),
+  GetPage(name: AppRoute.cart, page: ()=>const Cart()),
   //  GetPage(name: "/", page: ()=>const Itemsdetiels()),
   
 ];

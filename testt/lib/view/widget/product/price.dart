@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:testt/controller/cart_controllar.dart';
 import 'package:testt/core/constant/color1.dart';
 
 class Price extends StatefulWidget {
@@ -23,12 +25,15 @@ class Price extends StatefulWidget {
   }
   @override
   Widget build(BuildContext context) {
-    
+    CartController controlar=Get.put(CartController());
     return Row(
                 children: <Widget>[
                   Row(
                     children: [
-                      IconButton(onPressed: () {increment(); }, icon: Icon(Icons.add)),
+                      IconButton(onPressed: () {increment();
+                       controlar.additemcount(widget.data["itemid"] ,count);
+                      
+                       }, icon: Icon(Icons.add)),
                       Container(
                         alignment: Alignment.topCenter,
                         width: 50,
@@ -42,6 +47,7 @@ class Price extends StatefulWidget {
                       IconButton(onPressed: () {
                         if(count > 0){
                            decrement();
+                           controlar.additemcount(widget.data["itemid"] ,count);
                         }
                       }, icon: Icon(Icons.remove))
                     ],

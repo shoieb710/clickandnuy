@@ -17,7 +17,13 @@ import 'package:testt/view/screen/auth/verfiycodesinup.dart';
 import 'package:testt/view/screen/favoritepage.dart';
 import 'package:testt/view/screen/items.dart';
 import 'package:testt/view/screen/auth/signup.dart';
+import 'package:testt/view/widget/address/add_address_page.dart';
+import 'package:testt/view/widget/homescreensettings/payment_page.dart';
 import 'package:testt/view/screen/settings.dart';
+import 'package:testt/view/widget/settings/change_country.dart';
+import 'package:testt/view/widget/settings/change_language_page.dart';
+import 'package:testt/view/widget/settings/legal_about_page.dart';
+import 'package:testt/view/widget/settings/notifications_settings_page.dart';
 
 List<GetPage<dynamic>>? getPages =[
   GetPage(name: AppRoute.forgetpassword, page: ()=>const Forgetpassword()),
@@ -35,6 +41,13 @@ List<GetPage<dynamic>>? getPages =[
   GetPage(name: AppRoute.favoritepagr, page: ()=>const FavoritePage()),
   GetPage(name: AppRoute.settings, page: ()=>const Settings()),
   GetPage(name: AppRoute.cart, page: ()=>const Cart()),
+  GetPage(name: AppRoute.changecountry, page: ()=>const ChangeCountryPage()),
+  GetPage(name: AppRoute.changelang, page: ()=>const ChangeLanguagePage()),
+  GetPage(name: AppRoute.legalabout, page: ()=>const LegalAboutPage()),
+  GetPage(name: AppRoute.notificationsettings, page: ()=>const NotificationSettingsPage()),
+  GetPage(name: AppRoute.payment, page: ()=>const PaymentPage()),
+  GetPage(name: AppRoute.addaddresspage, page: ()=>const AddAddressPage()),
+
   //  GetPage(name: "/", page: ()=>const Itemsdetiels()),
   
 ];

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:testt/controller/favorite_controlar.dart';
 import 'package:testt/core/constant/color1.dart';
 import 'package:testt/core/constant/itemslist.dart';
+import 'package:testt/core/functions/loading.dart';
 import 'package:testt/view/screen/ditaels.dart';
 import 'package:testt/view/widget/home/customappbar.dart';
 import 'package:testt/view/widget/items/stars_discription.dart';
@@ -20,12 +21,27 @@ class _FavoritePageState extends State<FavoritePage> {
       fcontrolar.makefavlist();
     });
   }
+       bool isloading=true;
+  void time() async {
+      await Future.delayed(Duration(seconds: 1,milliseconds: 200));
+      isloading =false;
+      setState(() {
+        
+      });
+  }
+    @override
+  void initState() {
+    time();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     FavoriteController fcontrolar = Get.put(FavoriteController());
     return Scaffold(
-      body: Container(
+      body: 
+      isloading==true? Loading() :
+      Container(
         padding: EdgeInsets.all(15),
         child: ListView(
           children: [

@@ -3,17 +3,37 @@ import 'package:get/get.dart';
 import 'package:testt/controller/favorite_controlar.dart';
 import 'package:testt/controller/item_page_contrlollar.dart';
 import 'package:testt/core/constant/catagorylist.dart';
+import 'package:testt/core/functions/loading.dart';
 import 'package:testt/view/widget/home/categoresitems.dart';
 import 'package:testt/view/widget/home/customappbar.dart';
 import 'package:testt/view/widget/items/body.dart';
 
-class Items extends GetView<ItemsControllerimp> {
+class Items extends StatefulWidget {
   const Items({Key? Key}) : super(key: Key);
+  @override
+  State<Items> createState() => _ItemsState();
+}
+class _ItemsState extends State<Items> {
+       bool isloading=true;
+  void time() async {
+      await Future.delayed(Duration(seconds: 1,milliseconds: 200));
+      isloading =false;
+      setState(() {
+        
+      });
+  }
+    @override
+  void initState() {
+    time();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     FavoriteController fcontrolar =Get.put(FavoriteController());
     return Scaffold(
-      body: ListView(
+      body: 
+      isloading==true? Loading() :
+      ListView(
         children: [
           CustomAppBar(
               titleappbar: "52".tr,

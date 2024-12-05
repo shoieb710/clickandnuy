@@ -42,6 +42,7 @@ class HomeScreenControlarImp extends  HomeScreenControlar  {
   }
 
   gotocart(){
+    
     Get.toNamed(AppRoute.cart);
   }
   

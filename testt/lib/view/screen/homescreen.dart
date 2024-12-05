@@ -4,6 +4,7 @@ import 'package:testt/controller/favorite_controlar.dart';
 import 'package:testt/controller/home_screen%20_controlar.dart';
 import 'package:testt/core/constant/color1.dart';
 import 'package:testt/core/constant/imageassets.dart';
+import 'package:testt/view/screen/settings_page.dart';
 import 'package:testt/view/widget/home/custombuttonappbar.dart';
 
 class Homescreen extends StatelessWidget {
@@ -24,7 +25,7 @@ class Homescreen extends StatelessWidget {
         floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
         drawerScrimColor: ColorApp.logoshadw,
 
-        drawer: Drawer(),
+        drawer: Drawer(child:SettingsPage() ,),
         appBar: AppBar(
           iconTheme: IconThemeData(size: 30),
           toolbarHeight: 80,

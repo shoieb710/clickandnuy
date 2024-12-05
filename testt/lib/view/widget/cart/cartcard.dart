@@ -88,7 +88,7 @@ class _CartCardState extends State<CartCard> {
                                   controllar.cart.removeAt(widget.index);
                                   controllar.totalprice();
                                   controllar.update();
-                                  print(controllar.cart.length);
+                                
                                
 
                                 },

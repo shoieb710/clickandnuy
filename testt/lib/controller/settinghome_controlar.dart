@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:testt/core/constant/rout.dart';
 import 'package:testt/core/services/services.dart';
 
-class SettingsController extends GetxController{
+class SettingsHomeController extends GetxController{
     MyServices myServices = Get.find();
 
     logout(){
@@ -12,13 +12,16 @@ class SettingsController extends GetxController{
     changepassword(){
         Get.toNamed(AppRoute.resetpassword);
     }
-     topayment(){
-        Get.toNamed(AppRoute.payment);
+    tochangelang(){
+      Get.toNamed(AppRoute.changelang);
     }
-         topaymenthestory(){
-        Get.toNamed(AppRoute.paymenthistory);
+        tochangecountry(){
+      Get.toNamed(AppRoute.changecountry);
     }
-             toaddress(){
-        Get.toNamed(AppRoute.addaddresspage);
+        tolegal(){
+      Get.toNamed(AppRoute.legalabout);
+    }
+        tonotificationsettings(){
+      Get.toNamed(AppRoute.notificationsettings);
     }
 }

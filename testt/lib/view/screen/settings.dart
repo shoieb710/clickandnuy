@@ -67,19 +67,19 @@ changecase(bool value){
                   ListTile(
                       onTap:() {},
                       title:Text("about us"),
-                      trailing: Icon(Icons.help_outline_rounded),
+                      trailing: Image.asset("images/icons/about_us.png"),
                   ),
                    Divider(),
                   ListTile(
                       onTap:() {},
                       title:Text("contact us"),
-                      trailing: Icon(Icons.phone_callback_outlined),
+                      trailing: Image.asset("images/icons/contact_us.png"),
                   ),
                                        Divider(), 
                   ListTile(
                       onTap:() {controller.changepassword();},
                       title:Text("Change Password"),
-                      trailing: Icon(Icons.password_outlined),
+                      trailing: Image.asset("images/icons/change_pass.png"),
                   ),
                    Divider(),
                   ListTile(
@@ -87,7 +87,7 @@ changecase(bool value){
                           controller.logout();
                       },
                       title:Text("logout"),
-                      trailing: Icon(Icons.exit_to_app),
+                      trailing: Image.asset("images/icons/sign_out.png"),
                   ),
                               ]
                           ),
@@ -109,22 +109,22 @@ changecase(bool value){
                               children:[
      
                    ListTile(
-                      onTap:() {},
+                      onTap:() {controller.topayment();},
                       title:Text("Payment method"),
-                      trailing: Icon(Icons.payment_outlined)),
+                      trailing: Image.asset("images/icons/card.png")),
     
                    Divider(), 
                   ListTile(
-                      onTap:() {},
+                      onTap:() {controller.topaymenthestory();},
                       title:Text("Previous payments"),
-                      trailing: Icon(Icons.payments_outlined),
+                      trailing: Image.asset("images/icons/wallet.png"),
                   ),
                                       
                    Divider(),
                    ListTile(
-                      onTap:() {},
+                      onTap:() {controller.toaddress();},
                       title:Text("Address"),
-                      trailing: Icon(Icons.my_location_outlined),
+                      trailing: Image.asset("images/icons/country.png"),
                   ),
                               ]
                           ),

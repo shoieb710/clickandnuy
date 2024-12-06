@@ -12,7 +12,7 @@ class Middlware extends GetMiddleware{
   @override
   RouteSettings? redirect(String? route){
     if(myServices.sharedPreferences.getString("onboarding")=="1"){
-      return RouteSettings(name: AppRoute.login);
+      return RouteSettings(name: AppRoute.splashscreen);
     }
     return null;
     

@@ -18,14 +18,14 @@ class OnbordingControllerImp extends OnbordingController{
     currentPage ++;
     if (currentPage > onBoardingList.length-1){
       myServices.sharedPreferences.setString("onboarding", "1");
-      Get.offAllNamed(AppRoute.login);
+      Get.offAllNamed(AppRoute.splashscreen);
 
     }else{
     pageController.animateToPage(currentPage, duration: Duration(microseconds: 900), curve: Curves.easeInOut);}
 
   }
   skip() {
-    Get.offAllNamed(AppRoute.login);
+    Get.offAllNamed(AppRoute.splashscreen);
 
   }
 

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:testt/controller/favorite_controlar.dart';
 import 'package:testt/controller/item_page_contrlollar.dart';
 import 'package:testt/core/constant/catagorylist.dart';
-import 'package:testt/core/functions/loading.dart';
 import 'package:testt/view/widget/home/categoresitems.dart';
 import 'package:testt/view/widget/home/customappbar.dart';
 import 'package:testt/view/widget/items/body.dart';
@@ -32,7 +32,7 @@ class _ItemsState extends State<Items> {
     FavoriteController fcontrolar =Get.put(FavoriteController());
     return Scaffold(
       body: 
-      isloading==true? Loading() :
+      isloading==true? Center(child: Lottie.asset("animation/Animation.json")) :
       ListView(
         children: [
           CustomAppBar(

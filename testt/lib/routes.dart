@@ -1,6 +1,7 @@
 
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:testt/core/constant/rout.dart';
+import 'package:testt/core/functions/splash_screen.dart';
 import 'package:testt/core/middlware/mymiddlware.dart';
 import 'package:testt/view/screen/cart.dart';
 import 'package:testt/view/screen/ditaels.dart';
@@ -47,6 +48,7 @@ List<GetPage<dynamic>>? getPages =[
   GetPage(name: AppRoute.notificationsettings, page: ()=>const NotificationSettingsPage()),
   GetPage(name: AppRoute.payment, page: ()=>const PaymentPage()),
   GetPage(name: AppRoute.addaddresspage, page: ()=>const AddAddressPage()),
+  GetPage(name: AppRoute.splashscreen, page: ()=>const SplashScreen()),
 
   //  GetPage(name: "/", page: ()=>const Itemsdetiels()),
   

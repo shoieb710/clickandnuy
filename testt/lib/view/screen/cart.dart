@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:testt/controller/cart_controllar.dart';
 import 'package:testt/core/constant/color1.dart';
-import 'package:testt/core/functions/loading.dart';
 import 'package:testt/view/widget/cart/bottomappbarcart.dart';
 import 'package:testt/view/widget/cart/cartappbar.dart';
 import 'package:testt/view/widget/cart/cartcard.dart';
@@ -51,9 +51,9 @@ class Cart extends StatefulWidget{
 
       ),
       body:
-      isloading==true? Loading() :
+      isloading==true? Center(child: Lottie.asset("animation/Animation.json",)) :
       Obx(() {
-        return ListView.builder(
+        return controller.cart.isEmpty ? Center(child: Lottie.asset("animation/Animation7.json",)):ListView.builder(
           padding: EdgeInsets.only(top: 10, right: 15, left: 15, bottom: 15),
           itemCount: controller.cart.value.length, 
           itemBuilder: (BuildContext context, int index) {

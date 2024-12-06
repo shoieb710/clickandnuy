@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:testt/controller/favorite_controlar.dart';
 import 'package:testt/core/constant/color1.dart';
 import 'package:testt/core/constant/itemslist.dart';
-import 'package:testt/core/functions/loading.dart';
 import 'package:testt/view/screen/ditaels.dart';
 import 'package:testt/view/widget/home/customappbar.dart';
 import 'package:testt/view/widget/items/stars_discription.dart';
@@ -40,7 +40,7 @@ class _FavoritePageState extends State<FavoritePage> {
     FavoriteController fcontrolar = Get.put(FavoriteController());
     return Scaffold(
       body: 
-      isloading==true? Loading() :
+      isloading==true? Center(child: Lottie.asset("animation/Animation.json")):
       Container(
         padding: EdgeInsets.all(15),
         child: ListView(
@@ -51,7 +51,7 @@ class _FavoritePageState extends State<FavoritePage> {
                 onPressedsearch: () {}),
             Container(
               padding: EdgeInsets.symmetric(vertical: 10),
-              child: GridView.builder(
+              child: fcontrolar.favorite!.isEmpty ?  Center(child: Lottie.asset("animation/Animation7.json",)):GridView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   itemCount: fcontrolar.favorite?.length,

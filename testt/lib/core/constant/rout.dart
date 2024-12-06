@@ -22,5 +22,6 @@ class AppRoute{
   static const String paymenthistory="/paymenthistory";
   static const String addaddresspage="/addaddresspage";
   static const String splashscreen="/splashscreen";
+  static const String chat="/chat";
 
 }

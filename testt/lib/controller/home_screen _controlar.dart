@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:testt/core/constant/rout.dart';
-import 'package:testt/view/screen/cart.dart';
+import 'package:testt/view/screen/chat.dart';
 import 'package:testt/view/screen/home.dart';
 import 'package:testt/view/screen/favoritepage.dart';
 import 'package:testt/view/screen/settings.dart';
@@ -19,7 +19,7 @@ class HomeScreenControlarImp extends  HomeScreenControlar  {
   List<Widget> listpage=[
     const Home(),
     const FavoritePage(),
-    const Cart(),
+    const ChatPage(),
     const Settings()
   ]
   ;

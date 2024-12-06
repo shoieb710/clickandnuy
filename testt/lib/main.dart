@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:testt/core/constant/api.dart';
 import 'package:testt/core/constant/color1.dart';
 import 'package:testt/core/localization/changelocal.dart';
 import 'package:testt/core/localization/translation.dart';
@@ -10,6 +12,7 @@ import 'package:testt/routes.dart';
 
 
 Future<void> main() async {
+  Gemini.init(apiKey: OPENAI_API_KETG);
   WidgetsFlutterBinding.ensureInitialized();
   await initialServices();
   runApp(const MyApp());

@@ -4,8 +4,8 @@ import 'package:testt/core/constant/rout.dart';
 import 'package:testt/core/functions/splash_screen.dart';
 import 'package:testt/core/middlware/mymiddlware.dart';
 import 'package:testt/view/screen/cart.dart';
+import 'package:testt/view/screen/chat.dart';
 import 'package:testt/view/screen/ditaels.dart';
-
 import 'package:testt/view/screen/auth/forgetpass/forgetpassword.dart';
 import 'package:testt/view/screen/homescreen.dart';
 import 'package:testt/view/screen/auth/login.dart';
@@ -49,6 +49,7 @@ List<GetPage<dynamic>>? getPages =[
   GetPage(name: AppRoute.payment, page: ()=>const PaymentPage()),
   GetPage(name: AppRoute.addaddresspage, page: ()=>const AddAddressPage()),
   GetPage(name: AppRoute.splashscreen, page: ()=>const SplashScreen()),
+  GetPage(name: AppRoute.chat, page: ()=>const ChatPage()),
 
   //  GetPage(name: "/", page: ()=>const Itemsdetiels()),
   

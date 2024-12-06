@@ -4,7 +4,6 @@ import 'package:testt/controller/ath/login_controlar.dart';
 import 'package:testt/core/constant/color1.dart';
 import 'package:testt/core/constant/imageassets.dart';
 import 'package:testt/core/functions/alertexitapp.dart';
-import 'package:testt/core/functions/loading.dart';
 import 'package:testt/core/functions/validator.dart';
 import 'package:testt/view/widget/ath/customTextBody.dart';
 import 'package:testt/view/widget/ath/custombuttonauth.dart';
@@ -20,19 +19,19 @@ class Login extends StatefulWidget {
   State<Login> createState() => _LoginState();
 }
 class _LoginState extends State<Login> {
-     bool isloading=true;
-  void time() async {
-      await Future.delayed(Duration(seconds: 1,milliseconds: 200));
-      isloading =false;
-      setState(() {
+  //    bool isloading=true;
+  // void time() async {
+  //     await Future.delayed(Duration(seconds: 1,milliseconds: 200));
+  //     isloading =false;
+  //     setState(() {
         
-      });
-  }
-    @override
-  void initState() {
-    time();
-    super.initState();
-  }
+  //     });
+  // }
+  //   @override
+  // void initState() {
+  //   time();
+  //   super.initState();
+  // }
   @override
   Widget build(BuildContext context) {
     LoginControlarImp controllar= Get.put(LoginControlarImp());
@@ -52,7 +51,7 @@ class _LoginState extends State<Login> {
         backgroundColor: ColorApp.white,
         // ignore: deprecated_member_use
         body:
-        isloading==true? Loading() :
+        // isloading==true? Loading() :
         // ignore: deprecated_member_use
         WillPopScope(onWillPop: alertExitApp,
         child:  Container(

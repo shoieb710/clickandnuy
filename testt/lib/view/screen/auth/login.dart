@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:testt/controller/ath/login_controlar.dart';
@@ -78,18 +79,19 @@ class _LoginState extends State<Login> {
                       "13".tr),
               const SizedBox( height: 60, ),
                Customtextfeld(
-                validator: (val){return validatorT(val!, 5, 100, "email");},
+                validator: (val){return validatorT(val, 5, 100, "email");},
                 hinttext: '14'.tr,
                 lebaltext: ' E-mail',
                 iconData: Icons.email_outlined,
                  mycontrollar: controllar.email, num: false,
               ),
-              Secretpass(controllar: controllar.password,validator: (val){return validatorT(val!, 8, 16, "password");},),
+              Secretpass(controllar: controllar.password,validator: (val){return validatorT(val, 8, 16, "password");},),
               Textsignup(text1: "16".tr, text2: "", 
               onTap: (){controllar.toforgetpass();},mainAxisAlignment: MainAxisAlignment.end,),
               CustomButtonAuth(
                 text: "17".tr,
-                onPressed: () {controllar.login();},
+                onPressed: () {controllar.firelogin(controllar.email.text, controllar.password.text,context);
+            },
               ),
               const SizedBox( height: 20, ),
               Textsignup(text1: "18".tr, text2: "19".tr, 

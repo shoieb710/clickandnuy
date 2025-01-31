@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "465417260647",
+    "project_id": "click-and-buy-9dccb",
+    "storage_bucket": "click-and-buy-9dccb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465417260647:android:a48631b4d724f61b1f4ec2",
+        "android_client_info": {
+          "package_name": "com.example.testt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbSKXVNyzzQ5aydIhJXxVtS2vHZipvAGM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

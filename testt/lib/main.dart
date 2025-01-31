@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:get/get_core/get_core.dart';
@@ -12,8 +14,9 @@ import 'package:testt/routes.dart';
 
 
 Future<void> main() async {
-  Gemini.init(apiKey: OPENAI_API_KETG);
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  Gemini.init(apiKey: OPENAI_API_KETG);
   await initialServices();
   runApp(const MyApp());
 }
@@ -27,6 +30,18 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State {
+  @override
+  void initState() {
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+    if (user == null) {
+      print('=================User is currently signed out!');
+    } else {
+      print('=================User is signed in!');
+    }
+  });
+    super.initState();
+    
+  }
   @override
   Widget build(BuildContext context) {
     LocalControllar controllar = Get.put(LocalControllar());

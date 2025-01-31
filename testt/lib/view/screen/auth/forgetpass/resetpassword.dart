@@ -58,14 +58,14 @@ class ResetPassword extends StatelessWidget {
                   validator: (val){return validatorT(val!, 8, 16, "password");},
                   hinttext: '23'.tr,
                   lebaltext: ' Password',
-                  iconData: Icons.email_outlined,
+                  iconData: Icons.password_outlined,
                    mycontrollar: controllar.password, num: false,
                 ),
                 Customtextfeld(
                   validator: (val){return validatorT(val!, 8, 16, "password");},
                   hinttext: '37'.tr,
                   lebaltext: ' Re password',
-                  iconData: Icons.email_outlined,
+                  iconData: Icons.password_outlined,
                   mycontrollar: controllar.repassword, num: false,
                 ),
                 CustomButtonAuth(

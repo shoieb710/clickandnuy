@@ -11,13 +11,14 @@ import 'package:testt/view/screen/homescreen.dart';
 import 'package:testt/view/screen/auth/login.dart';
 import 'package:testt/view/screen/auth/onbording.dart';
 import 'package:testt/view/screen/auth/forgetpass/resetpassword.dart';
-import 'package:testt/view/screen/auth/forgetpass/success.dart';
+// import 'package:testt/view/screen/auth/forgetpass/success.dart';
 import 'package:testt/view/screen/auth/forgetpass/success_signup.dart';
-import 'package:testt/view/screen/auth/forgetpass/verifiycode.dart';
+// import 'package:testt/view/screen/auth/forgetpass/verifiycode.dart';
 import 'package:testt/view/screen/auth/verfiycodesinup.dart';
 import 'package:testt/view/screen/favoritepage.dart';
 import 'package:testt/view/screen/items.dart';
 import 'package:testt/view/screen/auth/signup.dart';
+import 'package:testt/view/screen/notification.dart';
 import 'package:testt/view/widget/address/add_address_page.dart';
 import 'package:testt/view/widget/homescreensettings/payment_page.dart';
 import 'package:testt/view/screen/settings.dart';
@@ -31,9 +32,9 @@ List<GetPage<dynamic>>? getPages =[
   GetPage(name: AppRoute.login, page: ()=>const Login()),
   GetPage(name: "/", page: ()=>const Onboarding(),middlewares: [Middlware()]),
   GetPage(name: AppRoute.signup, page: ()=>const Signup()),
-  GetPage(name: AppRoute.verifiycode, page: ()=>const Verifiycode()),
+  // GetPage(name: AppRoute.verifiycode, page: ()=>const Verifiycode()),
   GetPage(name: AppRoute.resetpassword, page: ()=>const ResetPassword()),
-  GetPage(name: AppRoute.success, page: ()=>const ResetSuccess()),
+  // GetPage(name: AppRoute.success, page: ()=>const ResetSuccess()),
   GetPage(name: AppRoute.successinup, page: ()=>const SuccessSignup()),
   GetPage(name: AppRoute.verifiycodesinup, page: ()=>const VerifiycodeSignUp()),
   GetPage(name: AppRoute.home, page: ()=>const Homescreen()),
@@ -50,6 +51,7 @@ List<GetPage<dynamic>>? getPages =[
   GetPage(name: AppRoute.addaddresspage, page: ()=>const AddAddressPage()),
   GetPage(name: AppRoute.splashscreen, page: ()=>const SplashScreen()),
   GetPage(name: AppRoute.chat, page: ()=>const ChatPage()),
+  GetPage(name: AppRoute.notification, page: ()=>const NotificationView()),
 
   //  GetPage(name: "/", page: ()=>const Itemsdetiels()),
   

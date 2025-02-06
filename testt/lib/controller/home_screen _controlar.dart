@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:testt/core/constant/rout.dart';
-import 'package:testt/view/screen/chat.dart';
 import 'package:testt/view/screen/home.dart';
 import 'package:testt/view/screen/favoritepage.dart';
+import 'package:testt/view/screen/notification.dart';
 import 'package:testt/view/screen/settings.dart';
 
 abstract class HomeScreenControlar extends GetxController {
@@ -19,7 +19,7 @@ class HomeScreenControlarImp extends  HomeScreenControlar  {
   List<Widget> listpage=[
     const Home(),
     const FavoritePage(),
-    const ChatPage(),
+    const NotificationView(),
     const Settings()
   ]
   ;
@@ -32,7 +32,7 @@ class HomeScreenControlarImp extends  HomeScreenControlar  {
   List<IconData> icons=[
     Icons.home,
     Icons.favorite,
-    Icons.person,
+    Icons.notifications_none_outlined,
     Icons.settings,
   ];
   @override

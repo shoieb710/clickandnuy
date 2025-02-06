@@ -36,7 +36,7 @@ class SuccessSignup extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child:
-                CustomButtonAuth( text: "17".tr,onPressed: () {controllar.tologin();},),
+                CustomButtonAuth( text: "17".tr,onPressed: () {controllar.tologin(context);},),
               
             ),
         ],),

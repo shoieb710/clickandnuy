@@ -1,17 +1,28 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+// import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:testt/controller/ath/verifycodesinup_controlar.dart';
 import 'package:testt/core/constant/color1.dart';
 import 'package:testt/core/constant/imageassets.dart';
 import 'package:testt/view/widget/ath/customTextBody.dart';
+import 'package:testt/view/widget/ath/custombuttonauth.dart';
 import 'package:testt/view/widget/ath/customtexttitlelog.dart';
 
 
-class VerifiycodeSignUp extends StatelessWidget {
+class VerifiycodeSignUp extends StatefulWidget {
   const VerifiycodeSignUp({super.key});
-  
 
+  @override
+  State<VerifiycodeSignUp> createState() => _VerifiycodeSignUpState();
+}
+  
+class _VerifiycodeSignUpState extends State<VerifiycodeSignUp> {
+  @override
+  void initState() {
+    super.initState();
+    FirebaseAuth.instance.currentUser!.sendEmailVerification();
+  }
   @override
   Widget build(BuildContext context) {
     VerifiycodeSignUpControlarImp controllar = Get.put(VerifiycodeSignUpControlarImp());
@@ -52,20 +63,21 @@ class VerifiycodeSignUp extends StatelessWidget {
                     const SizedBox(
                       height: 60,
                     ),
-              OtpTextField(
-                enabledBorderColor: ColorApp.white,
-                focusedBorderColor: ColorApp.logo,
-                cursorColor: ColorApp.black,
-                  numberOfFields: 5,
-                  fieldWidth: 50,
-                  borderRadius: BorderRadius.circular(20),
-                  borderColor: ColorApp.logo,
-                  showFieldAsBox: true, 
-                  onCodeChanged: (String code) { 
+                  CustomButtonAuth(text: 'Check',onPressed: (){controllar.checkCode(context);},)
+              // OtpTextField(
+              //   enabledBorderColor: ColorApp.white,
+              //   focusedBorderColor: ColorApp.logo,
+              //   cursorColor: ColorApp.black,
+              //     numberOfFields: 5,
+              //     fieldWidth: 50,
+              //     borderRadius: BorderRadius.circular(20),
+              //     borderColor: ColorApp.logo,
+              //     showFieldAsBox: true, 
+              //     onCodeChanged: (String code) { 
                          
-                       },
+              //          },
  
-                  onSubmit: (String verificationCode){controllar.tosuccesssignup();  },),
+              //     onSubmit: (String verificationCode){controllar.tosuccesssignup();  },),
                   ],
                 ),
               

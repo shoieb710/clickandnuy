@@ -15,8 +15,11 @@ class Middlware extends GetMiddleware{
     if(myServices.sharedPreferences.getString("onboarding")=="1"){
       return RouteSettings(name: AppRoute.splashscreen);
     }
-    if(FirebaseAuth.instance.currentUser != null){
+    if(FirebaseAuth.instance.currentUser != null && FirebaseAuth.instance.currentUser!.emailVerified){
       return RouteSettings(name: AppRoute.home);
+    }
+    else{
+      return RouteSettings(name: AppRoute.login);
     }
     return null;
     

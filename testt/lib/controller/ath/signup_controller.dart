@@ -6,7 +6,7 @@ import 'package:testt/core/constant/color1.dart';
 import 'package:testt/core/constant/rout.dart';
 
 abstract class SignupControlar extends GetxController {
-  signup();
+  signup(emailAddress,password,context);
   tosignin();
   createpass(emailAddress,password,context);
 }
@@ -19,10 +19,12 @@ class SignupControlarImp extends SignupControlar {
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
   @override
-  signup() {
+  signup(emailAddress,password,context) {
     var formdata = formstate.currentState;
     if (formdata!.validate()) {
-      Get.offNamed(AppRoute.verifiycodesinup);
+      
+      createpass(emailAddress,password,context);
+
     } else {
       // ignore: avoid_print
       print("not vaild");
@@ -56,11 +58,12 @@ class SignupControlarImp extends SignupControlar {
   @override
   createpass(emailAddress,password,context) async {
     try {
+      // ignore: unused_local_variable
       final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailAddress,
         password: password,
       );
-      signup();
+      Get.offNamed(AppRoute.verifiycodesinup);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
           AwesomeDialog(
@@ -93,6 +96,7 @@ class SignupControlarImp extends SignupControlar {
             ).show();
   } 
     } catch (e) {
+      // ignore: avoid_print
       print(e);
     }
   }

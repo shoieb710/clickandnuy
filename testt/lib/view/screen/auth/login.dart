@@ -1,4 +1,3 @@
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:testt/controller/ath/login_controlar.dart';
@@ -67,9 +66,9 @@ class _LoginState extends State<Login> {
           
           ListView(
             children: [
-              const SizedBox(height: 10,),
-              Logoauth(),
-              const SizedBox( height: 20, ),
+              const SizedBox(height: 8,),
+              Logoauth(image: AssetImage(ImageAssets.logoImage), height: 150, offset: Offset(5, 7), spreadRadius: 8,),
+              const SizedBox( height: 15, ),
                CustomTextTitleLog(
                 text: '12'.tr,
               ),
@@ -77,7 +76,7 @@ class _LoginState extends State<Login> {
                Customtextbody(
                   bodytext:
                       "13".tr),
-              const SizedBox( height: 60, ),
+              const SizedBox( height: 45, ),
                Customtextfeld(
                 validator: (val){return validatorT(val, 5, 100, "email");},
                 hinttext: '14'.tr,
@@ -90,10 +89,15 @@ class _LoginState extends State<Login> {
               onTap: (){controllar.toforgetpass();},mainAxisAlignment: MainAxisAlignment.end,),
               CustomButtonAuth(
                 text: "17".tr,
-                onPressed: () {controllar.firelogin(controllar.email.text, controllar.password.text,context);
+                onPressed: () {controllar.login(controllar.email.text, controllar.password.text,context);
             },
               ),
               const SizedBox( height: 20, ),
+              InkWell(
+                onTap: () {controllar.signInWithGoogle();},
+                child: Logoauth(image: AssetImage(ImageAssets.google), height: 50, offset: Offset(1, 2), spreadRadius: 5,),
+              ),
+              const SizedBox( height: 10, ),
               Textsignup(text1: "18".tr, text2: "19".tr, 
               onTap: (){controllar.tosignup();},mainAxisAlignment: MainAxisAlignment.center,)
 

@@ -57,7 +57,7 @@ class Signup extends StatelessWidget {
                     bodytext:
                         "20".tr),
                 const SizedBox(
-                  height: 60,
+                  height: 40,
                 ),
                 Customtextfeld(
                   validator: (val){return validatorT(val!, 5, 100, "username");},
@@ -86,10 +86,10 @@ class Signup extends StatelessWidget {
                   text: "18".tr,
                   onPressed: () {
                     // controllar.signup();
-                  controllar.createpass(controllar.email.text, controllar.password.text,context);},
+                  controllar.signup(controllar.email.text, controllar.password.text,context);},
                 ),
                 const SizedBox(
-                  height: 50,
+                  height: 20,
                 ),
                 Textsignup(text1: "17".tr, text2: "25".tr, 
                 onTap: (){controllar.tosignin();},mainAxisAlignment: MainAxisAlignment.center,)

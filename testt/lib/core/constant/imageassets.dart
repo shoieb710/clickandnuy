@@ -19,6 +19,5 @@ class ImageAssets {
   static const String watch="$rootImage/watch.png";
   static const String workspace="$rootImage/workspace.png";
   static const String avatar="$rootImage/avatar.png";
-
-
+  static const String google="$rootImage/download.png";
 } 

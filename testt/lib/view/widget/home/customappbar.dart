@@ -35,13 +35,11 @@ class CustomAppBar extends StatelessWidget {
                       color: ColorApp.logo),
                   width: 60,
                   padding: EdgeInsets.symmetric(vertical: 5),
-                  child: IconButton(
+                  child: MaterialButton(
                       onPressed: onPressedNotifications,
-                      icon: Icon(
-                        Icons.notifications_active_outlined,
-                        size: 40,
-                        color: ColorApp.white,
-                      )),
+                      textColor: ColorApp.white,
+                      child: Text("AI",style: TextStyle(fontSize: 25),),
+                  ),
                 )
               ],
             ),

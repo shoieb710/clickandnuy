@@ -26,7 +26,13 @@ class _ChatPageState extends State<ChatPage> {
   List<ChatUser> typingusers =[];
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("AI Chat",style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold),) ,
+        backgroundColor: ColorApp.logo,
+      ),
       body: DashChat(
         typingUsers: typingusers,
           currentUser: currentUser,

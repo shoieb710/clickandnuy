@@ -23,5 +23,6 @@ class AppRoute{
   static const String addaddresspage="/addaddresspage";
   static const String splashscreen="/splashscreen";
   static const String chat="/chat";
+  static const String notification="/notification";
 
 }

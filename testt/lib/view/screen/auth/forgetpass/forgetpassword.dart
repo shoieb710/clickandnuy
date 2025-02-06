@@ -66,7 +66,7 @@ class Forgetpassword extends StatelessWidget {
                       CustomButtonAuth(
                         text: "27".tr,
                         onPressed: () {
-                          controllar.checkEmail();
+                          controllar.checkEmail(controllar.email.text,context);
                           },
                       ),
                       const SizedBox(

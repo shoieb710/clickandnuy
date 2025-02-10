@@ -31,7 +31,7 @@ class Price extends StatefulWidget {
                   Row(
                     children: [
                       IconButton(onPressed: () {increment();
-                       controlar.additemcount(widget.data["itemid"] ,count);
+                       controlar.additemcount(widget.data["id"] ,count);
                       
                        }, icon: Icon(Icons.add)),
                       Container(
@@ -47,7 +47,7 @@ class Price extends StatefulWidget {
                       IconButton(onPressed: () {
                         if(count > 0){
                            decrement();
-                           controlar.additemcount(widget.data["itemid"] ,count);
+                           controlar.additemcount(widget.data["id"] ,count);
                         }
                       }, icon: Icon(Icons.remove))
                     ],

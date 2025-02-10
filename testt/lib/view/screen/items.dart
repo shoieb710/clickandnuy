@@ -1,9 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:testt/controller/favorite_controlar.dart';
 import 'package:testt/controller/item_page_contrlollar.dart';
-import 'package:testt/core/constant/catagorylist.dart';
+// import 'package:testt/core/constant/catagorylist.dart';
 import 'package:testt/view/widget/home/categoresitems.dart';
 import 'package:testt/view/widget/home/customappbar.dart';
 import 'package:testt/view/widget/items/body.dart';
@@ -14,22 +15,26 @@ class Items extends StatefulWidget {
   State<Items> createState() => _ItemsState();
 }
 class _ItemsState extends State<Items> {
-       bool isloading=true;
-  void time() async {
-      await Future.delayed(Duration(seconds: 1,milliseconds: 200));
-      isloading =false;
-      setState(() {
-        
-      });
+    List<QueryDocumentSnapshot> catagorylist=[];
+    ItemsControllerimp controller = Get.put(ItemsControllerimp());
+    bool isloading=true;
+  getdata()async{
+    QuerySnapshot querySnapshot= await FirebaseFirestore.instance.collection('categories').get();
+    catagorylist.addAll(querySnapshot.docs);
+    isloading =false;
+    setState(() {
+    });
   }
+
     @override
   void initState() {
-    time();
+    controller.getdata();
+    getdata();
     super.initState();
   }
   @override
   Widget build(BuildContext context) {
-    FavoriteController fcontrolar =Get.put(FavoriteController());
+    FavoriteControllerimp fcontrolar =Get.put(FavoriteControllerimp());
     return Scaffold(
       body: 
       isloading==true? Center(child: Lottie.asset("animation/Animation.json")) :
@@ -40,14 +45,14 @@ class _ItemsState extends State<Items> {
               onPressedNotifications: () {},
               onPressedsearch: () {}),
           SizedBox(height: 20),
-          CatagoresItemBuilder(catagores: catagoreslist),
+          CatagoresItemBuilder(catagores: catagorylist),
           GetBuilder<ItemsControllerimp>(
               builder: (controller) => Container(
                     padding: EdgeInsets.symmetric(vertical: 10),
                     child: GridView.builder(
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
-                        itemCount: controller.itemlist!.length,
+                        itemCount: controller.itemlist.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             mainAxisExtent: 280,
                             mainAxisSpacing: 10,
@@ -55,9 +60,12 @@ class _ItemsState extends State<Items> {
                             crossAxisCount: 2,
                             childAspectRatio: 0.7),
                         itemBuilder: (BuildContext context, index) {
-                          fcontrolar.isfavorite[controller.itemlist?[index]["itemid"]] = controller.itemlist?[index]["fav"];
+                          // fcontrolar.isfavorite[controller.itemlist[index]["id"]] = controller.itemlist[index]["fav"];
+                          // fcontrolar.itemlist=controller.itemlist;
+                          // fcontrolar.index=index;
+                          fcontrolar.selectedcat=controller.selectedCat;
                           return 
-                           Body(itemlist: controller.itemlist, index: index, index1: fcontrolar.index1);
+                           Body(itemlist: controller.itemlist, index: index, index1: fcontrolar.index1, catnam: controller.catname[controller.selectedCat],);
                         }),
                   ))
         ],

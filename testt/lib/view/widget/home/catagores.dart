@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:testt/controller/ath/home_controlar.dart';
-import 'package:testt/core/constant/catagorylist.dart';
+import 'package:testt/controller/item_page_contrlollar.dart';
+// import 'package:testt/core/constant/catagorylist.dart';
 import 'package:testt/core/constant/color1.dart';
 import 'package:testt/core/constant/itemslist.dart';
 
@@ -10,7 +12,7 @@ import 'package:testt/core/constant/itemslist.dart';
 
 class CatagoresBuilder extends StatelessWidget {
   const CatagoresBuilder({super.key, required this.catagores,});
-  final List catagores;
+  final List<QueryDocumentSnapshot> catagores;
   
  
 
@@ -30,6 +32,7 @@ class CatagoresBuilder extends StatelessWidget {
       return itemlist;
     }
     HomePageControlarImp controller = Get.put(HomePageControlarImp());
+    // ItemsControllerimp icontroller = Get.put(ItemsControllerimp());
     return Container(
        padding: EdgeInsets.symmetric(vertical: 10),
        height: 130,
@@ -38,7 +41,8 @@ class CatagoresBuilder extends StatelessWidget {
                 itemBuilder: (context, i) {
                   return InkWell(
                     onTap: () {
-                       controller.gotoitems(catagoreslist, i, check(i));
+                       controller.gotoitems(catagores, i, check(i));
+                      //  icontroller.getdata();
                     },
                     child: Column(
                       children: [
@@ -46,7 +50,7 @@ class CatagoresBuilder extends StatelessWidget {
                         height: 70,
                         width: 75,
                           decoration: BoxDecoration(
-                             image: DecorationImage(image: AssetImage(catagores[i]["imagepath"],),fit: BoxFit.fitWidth,
+                             image: DecorationImage(image: AssetImage(catagores[i]["image"],),fit: BoxFit.fitWidth,
                              filterQuality: FilterQuality.high,
                              ),
                               // shape: BoxShape.circle,
@@ -54,7 +58,7 @@ class CatagoresBuilder extends StatelessWidget {
                               borderRadius: BorderRadius.circular(15)),
                           padding: const EdgeInsets.all(15),
                         ),
-                        Text(catagores[i]["title"], style: TextStyle(fontWeight: FontWeight.bold,
+                        Text(catagores[i]["name"], style: TextStyle(fontWeight: FontWeight.bold,
                               color: ColorApp.black,fontSize: 16), )
                       ],
                     ),

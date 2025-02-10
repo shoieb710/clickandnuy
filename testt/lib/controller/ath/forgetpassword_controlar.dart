@@ -31,6 +31,7 @@ class ForgetPasswordControlarImp extends ForgetPasswordControlar {
                 desc: 'email ont find or deleted',
                 descTextStyle: TextStyle(color: ColorApp.black))
             .show();
+            // ignore: avoid_print
             print(e);
       }
     } else {

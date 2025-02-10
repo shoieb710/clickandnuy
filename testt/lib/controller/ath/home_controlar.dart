@@ -21,7 +21,7 @@ class HomePageControlarImp extends HomePageControlar {
     Get.toNamed(AppRoute.items,arguments: {
         "catagoreslist": catagoreslist,
         "selectedcat" :selectedcat,
-        "itemlist" : itemlist,
+        // "itemlist" : itemlist,
         
 
 

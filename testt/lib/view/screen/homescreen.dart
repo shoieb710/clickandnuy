@@ -7,13 +7,17 @@ import 'package:testt/core/constant/imageassets.dart';
 import 'package:testt/view/screen/settings_page.dart';
 import 'package:testt/view/widget/home/custombuttonappbar.dart';
 
-class Homescreen extends StatelessWidget {
+class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
-
+  @override
+  State<Homescreen> createState() => _HomescreenState();
+}
+class _HomescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     Get.put(HomeScreenControlarImp());
-    FavoriteController cont=Get.put(FavoriteController());
+    // ignore: unused_local_variable
+    FavoriteControllerimp cont=Get.put(FavoriteControllerimp());
     return GetBuilder<HomeScreenControlarImp>(builder: (controlar) {
       return Scaffold(
         
@@ -91,7 +95,11 @@ class Homescreen extends StatelessWidget {
                           // text: controlar.titel[i],
                           icon: controlar.icons[i],
                           onPressed: () {
-                            cont.makefavlist();
+                            // setState(() {
+                            // cont.makeitemlist();
+                            // cont.getuserdata();
+                            // });
+
                             controlar.changrpage(i);
                           },
                           activr: controlar.currentpage == i ? true : false,

@@ -21,7 +21,7 @@ class Middlware extends GetMiddleware{
     else{
       return RouteSettings(name: AppRoute.login);
     }
-    return null;
+
     
   
     

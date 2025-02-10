@@ -19,7 +19,7 @@ class StarsDiscription extends StatelessWidget {
           children: [
             ...List.generate(
                 5,
-                (i) => i>= itemlist?[index]["starsnum"]?  
+                (i) => i>= itemlist?[index]["stars"]?  
                 Icon(
                       Icons.star_border_outlined,
                       size: 15,

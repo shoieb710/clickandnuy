@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -5,10 +6,10 @@ import 'package:testt/controller/ath/resetpassword_controlar.dart';
 
 import 'package:testt/core/constant/color1.dart';
 import 'package:testt/core/constant/imageassets.dart';
-import 'package:testt/core/functions/validator.dart';
+// import 'package:testt/core/functions/validator.dart';
 import 'package:testt/view/widget/ath/customTextBody.dart';
 import 'package:testt/view/widget/ath/custombuttonauth.dart';
-import 'package:testt/view/widget/ath/customtextfeld.dart';
+// import 'package:testt/view/widget/ath/customtextfeld.dart';
 import 'package:testt/view/widget/ath/customtexttitlelog.dart';
 
 class ResetPassword extends StatelessWidget {
@@ -17,6 +18,7 @@ class ResetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
         ResetPasswordControlarImp controllar = Get.put(ResetPasswordControlarImp());
+        String? email =  FirebaseAuth.instance.currentUser?.email;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ColorApp.logo,
@@ -36,15 +38,14 @@ class ResetPassword extends StatelessWidget {
                 image: AssetImage(ImageAssets.backgroundImage),
                 fit: BoxFit.cover)),
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-        child: Form(
-          key: controllar.formstate,
-          child: Container(
-            padding: EdgeInsets.only(top: 150),
+        child: 
+           Container(
+            padding: EdgeInsets.only(top: 100),
             child: ListView(
           
               children: [
                 const SizedBox(
-                  height: 60,
+                  height: 5,
                 ),
                 CustomTextTitleLog(
                   text: '34'.tr,
@@ -52,22 +53,22 @@ class ResetPassword extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                Customtextbody(bodytext: "14".tr),
+                Customtextbody(bodytext: " سيتم ارسال رساله تغير كلمه السر الي البريد $email ".tr),
                 const SizedBox(
-                  height: 60,
+                  height: 50,
                 ),
-                Customtextfeld(
-                        validator: (val){return validatorT(val!, 5, 100, "email");},
-                        hinttext: '14'.tr,
-                        lebaltext: ' E-mail',
-                        iconData: Icons.email_outlined, 
-                        mycontrollar: controllar.email, num: false,
-                      ),
+                // Customtextfeld(
+                //         validator: (val){return validatorT(val!, 5, 100, "email");},
+                //         hinttext: '14'.tr,
+                //         lebaltext: ' E-mail',
+                //         iconData: Icons.email_outlined, 
+                //         mycontrollar: controllar.email, num: false,
+                //       ),
                 CustomButtonAuth(
-                  text: "27".tr,
+                  text: "send massege",
                   onPressed: () {
-                  // if(controllar.password == controllar.repassword){
-                    controllar.resetPassword(controllar.email.text,context);}
+ 
+                    controllar.resetPassword(email,context);}
                   
                 ),
                 const SizedBox(
@@ -77,7 +78,7 @@ class ResetPassword extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
+      );
+    
   }
 }

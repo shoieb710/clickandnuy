@@ -23,7 +23,8 @@ class CatagoresItemBuilder extends StatelessWidget {
                   return InkWell(
                     onTap: () {
                       controller.changeCat(i);
-                      controller.check(i);
+                      // controller.check(i);
+                      controller.getdata();
                     },
                     child: Column(
                       children: [
@@ -31,7 +32,7 @@ class CatagoresItemBuilder extends StatelessWidget {
                         height: 70,
                         width: 75,
                           decoration: BoxDecoration(
-                             image: DecorationImage(image: AssetImage(catagores[i]["imagepath"],),fit: BoxFit.fitWidth,
+                             image: DecorationImage(image: AssetImage(catagores[i]["image"],),fit: BoxFit.fitWidth,
                              filterQuality: FilterQuality.high,
                              ),
                               // shape: BoxShape.circle,
@@ -47,7 +48,7 @@ class CatagoresItemBuilder extends StatelessWidget {
                             border: Border(bottom: BorderSide(width: 5,color: ColorApp.logo))
                           ): null,
                           
-                          child: Text(catagores[i]["title"], style: TextStyle(fontWeight: FontWeight.bold,
+                          child: Text(catagores[i]["name"], style: TextStyle(fontWeight: FontWeight.bold,
                                 color: ColorApp.black,fontSize: 16), ),
                         ))
                       ],

@@ -19,19 +19,6 @@ class Login extends StatefulWidget {
   State<Login> createState() => _LoginState();
 }
 class _LoginState extends State<Login> {
-  //    bool isloading=true;
-  // void time() async {
-  //     await Future.delayed(Duration(seconds: 1,milliseconds: 200));
-  //     isloading =false;
-  //     setState(() {
-        
-  //     });
-  // }
-  //   @override
-  // void initState() {
-  //   time();
-  //   super.initState();
-  // }
   @override
   Widget build(BuildContext context) {
     LoginControlarImp controllar= Get.put(LoginControlarImp());
@@ -49,9 +36,7 @@ class _LoginState extends State<Login> {
                   .copyWith(color: ColorApp.black)),
         ),
         backgroundColor: ColorApp.white,
-        // ignore: deprecated_member_use
         body:
-        // isloading==true? Loading() :
         // ignore: deprecated_member_use
         WillPopScope(onWillPop: alertExitApp,
         child:  Container(

@@ -1,3 +1,4 @@
+// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:testt/controller/cart_controllar.dart';
@@ -11,7 +12,7 @@ import 'package:testt/view/widget/product/price.dart';
 class Itemsdetiels extends StatelessWidget {
   // ignore: prefer_typing_uninitialized_variables
   final data;
-  const Itemsdetiels({super.key, this.data});
+  const Itemsdetiels({super.key,  this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -129,7 +130,7 @@ class Itemsdetiels extends StatelessWidget {
                 height: 10,
               ),
               Colorbutton(
-                avelablecolors: data["avelablecolor"],
+                avelablecolors: data["color"],
               )
             ],
           ),

@@ -11,35 +11,39 @@ abstract class ResetPasswordControlar extends GetxController{
 
 class ResetPasswordControlarImp extends ResetPasswordControlar {
   late TextEditingController email;
-  GlobalKey<FormState> formstate=GlobalKey<FormState>();
 
   @override
   resetPassword(email,context)async {
-    var formdata= formstate.currentState;
-    if(formdata!.validate()){
-      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
-        AwesomeDialog(
-              btnOk: SizedBox(
-                width: 50,
-                child: MaterialButton(onPressed:(){Get.offNamed(AppRoute.home);} ,
-                
-                color: ColorApp.logo,child: Text("ok"),),
-              ),
-              btnOkColor: ColorApp.logo,
-              context:context,
-                dialogType: DialogType.success,
-                animType: AnimType.rightSlide,
-                title: 'success',
-                desc: 'go to your email to reset your password',
-                descTextStyle: TextStyle(color: ColorApp.black))
-            .show();
+      try {
+  await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+    AwesomeDialog(
+          btnOk: SizedBox(
+            width: 50,
+            child: MaterialButton(onPressed:(){Get.offNamed(AppRoute.home);} ,
+            
+            color: ColorApp.logo,child: Text("ok"),),
+          ),
+          btnOkColor: ColorApp.logo,
+          context:context,
+            dialogType: DialogType.success,
+            animType: AnimType.rightSlide,
+            title: 'success',
+            desc: 'go to your email to reset your password',
+            descTextStyle: TextStyle(color: ColorApp.black))
+        .show();
+} on FirebaseAuthException catch (e) {
+      AwesomeDialog(
+          btnOkColor: ColorApp.logo,
+          context:context,
+            dialogType: DialogType.error,
+            animType: AnimType.rightSlide,
+            title: 'Error',
+            desc: '$e',
+            descTextStyle: TextStyle(color: ColorApp.black))
+        .show();
       
-    }else{
-      // ignore: avoid_print
-      print("not vaild");
-    }
   }
-  
+  }
   @override
   void onInit() {
    email = TextEditingController();

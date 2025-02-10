@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:awesome_dialog/awesome_dialog.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -60,8 +61,10 @@ class LoginControlarImp extends LoginControlar {
   firelogin(emailAddress, password, context) async {
     try {
       // ignore: unused_local_variable
+
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: emailAddress, password: password);
+
       if(credential.user!.emailVerified){
         Get.offNamed(AppRoute.home);
       }else{
@@ -114,5 +117,8 @@ class LoginControlarImp extends LoginControlar {
       await FirebaseAuth.instance.signInWithCredential(credential);
       Get.offNamed(AppRoute.home);
     }
-  }
+  
+  
 
+
+}

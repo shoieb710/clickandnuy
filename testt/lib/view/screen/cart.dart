@@ -58,7 +58,7 @@ class Cart extends StatefulWidget{
           itemCount: controller.cart.value.length, 
           itemBuilder: (BuildContext context, int index) {
             var item = controller.cart.value[index];
-            var count = controller.itemcount[item["itemid"].toString()] ?? 0;
+            var count = controller.itemcount[item["id"].toString()] ?? 0;
 
             return SizedBox(
               height: 130,
@@ -67,7 +67,7 @@ class Cart extends StatefulWidget{
                 itemname: item["title"],
                 price: item["price"],
                 count: count,
-                id: item["itemid"].toString(),
+                id: item["id"].toString(),
                 index: index,
               ),
             );

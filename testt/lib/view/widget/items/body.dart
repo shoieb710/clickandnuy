@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:testt/core/constant/color1.dart';
 import 'package:testt/view/screen/ditaels.dart';
@@ -5,17 +6,18 @@ import 'package:testt/view/widget/items/favbutton.dart';
 import 'package:testt/view/widget/items/stars_discription.dart';
 
 class Body extends StatelessWidget {
-  const Body({super.key,required this.itemlist, required this.index, required this.index1});
-  final List? itemlist;
+  const Body({super.key,required this.itemlist, required this.index, required this.index1, required this.catnam});
+  final List<QueryDocumentSnapshot> itemlist;
   final int index;
   final List index1;
+  final String catnam;
   @override
   Widget build(BuildContext context) {
     return InkWell(
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => Itemsdetiels(
-              data: itemlist?[index],
+              data: itemlist[index],
             ),
           ));
         },
@@ -27,15 +29,15 @@ class Body extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Hero(
-                    tag: itemlist?[index]["tag"],
+                    tag: itemlist[index]["tag"],
                     child: Image.asset(
-                      itemlist?[index]["image"],
+                      itemlist[index]["image"],
                       height: 140,
                       fit: BoxFit.fill,
                     ),
                   ),
                   Text(
-                    itemlist?[index]["title"],
+                    itemlist[index]["title"],
                     style: TextStyle(
                         color: ColorApp.black,
                         fontSize: 16,
@@ -48,7 +50,7 @@ class Body extends StatelessWidget {
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("${itemlist?[index]["price"]}\$",
+                        Text("${itemlist[index]["price"]}\$",
                             style: TextStyle(
                                 color: ColorApp.logo,
                                 fontSize: 16,
@@ -57,7 +59,7 @@ class Body extends StatelessWidget {
                         FavButton(
                             itemlist: itemlist,
                             index: index,
-                            index1: index1)
+                            index1: index1, catnam: catnam,)
                       ])
                 ])));
     

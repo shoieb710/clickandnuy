@@ -1,4 +1,5 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,6 +10,7 @@ abstract class SignupControlar extends GetxController {
   signup(emailAddress,password,context);
   tosignin();
   createpass(emailAddress,password,context);
+  addUser(user);
 }
 
 class SignupControlarImp extends SignupControlar {
@@ -64,6 +66,7 @@ class SignupControlarImp extends SignupControlar {
         password: password,
       );
       Get.offNamed(AppRoute.verifiycodesinup);
+      addUser(emailAddress);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
           AwesomeDialog(
@@ -100,4 +103,18 @@ class SignupControlarImp extends SignupControlar {
       print(e);
     }
   }
+      @override
+      Future<void> addUser(user) async{
+      CollectionReference users = FirebaseFirestore.instance.collection(user);
+      return users
+          .add({
+            "id":  FirebaseAuth.instance.currentUser?.uid,
+            "favitemid": "",
+            "cartitemid": ""
+          })
+          // ignore: avoid_print
+          .then((value) => print("User Added"))
+          // ignore: avoid_print
+          .catchError((error) => print("Failed to add user: $error"));
+    }
 }

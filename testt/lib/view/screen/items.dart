@@ -4,12 +4,12 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:testt/controller/favorite_controlar.dart';
 import 'package:testt/controller/item_page_contrlollar.dart';
-// import 'package:testt/core/constant/catagorylist.dart';
 import 'package:testt/view/widget/home/categoresitems.dart';
 import 'package:testt/view/widget/home/customappbar.dart';
 import 'package:testt/view/widget/items/body.dart';
 
 class Items extends StatefulWidget {
+  // ignore: non_constant_identifier_names
   const Items({Key? Key}) : super(key: Key);
   @override
   State<Items> createState() => _ItemsState();

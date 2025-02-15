@@ -1,3 +1,4 @@
 // ignore: constant_identifier_names
 const OPENAI_API_KET ="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";
+// ignore: constant_identifier_names
 const OPENAI_API_KETG ="AIzaSyC_EgzXovobrTlA8r4jJ8TL8c0zdzcfnF8";

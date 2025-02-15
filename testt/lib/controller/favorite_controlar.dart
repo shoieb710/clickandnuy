@@ -90,7 +90,7 @@ abstract class FavoriteController extends GetxController{
     
   }
   }
-  print("f$favorite");
+ 
    isloading=false;
    update();
   }
@@ -114,7 +114,6 @@ abstract class FavoriteController extends GetxController{
       idlist=[];
       QuerySnapshot querySnapshot= await FirebaseFirestore.instance.collection(FirebaseAuth.instance.currentUser!.email!).get();
       idlist.addAll(querySnapshot.docs);
-      print("l$idlist");
       update();
       }
 

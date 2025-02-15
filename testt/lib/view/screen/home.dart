@@ -2,9 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:testt/controller/favorite_controlar.dart';
-import 'package:testt/controller/item_page_contrlollar.dart';
-// import 'package:testt/core/constant/catagorylist.dart';
 import 'package:testt/core/constant/imageassets.dart';
 import 'package:testt/core/constant/itemslist.dart';
 import 'package:testt/core/constant/rout.dart';
@@ -67,14 +64,14 @@ class _HomeState extends State<Home> {
             style: Theme.of(context).textTheme.headlineMedium,
           ),
            SizedBox(height: 20,),
-          Builditems(items: bestitems),
+          Builditems(items: bestitems, temp: false,),
            SizedBox(height: 20,),
          Text(
             "64".tr,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
            SizedBox(height: 20,),
-          Builditems(items: itemsoffers),
+          Builditems(items: itemsoffers, temp: true,),
         ],
       ),
     );

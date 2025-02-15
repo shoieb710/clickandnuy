@@ -46,7 +46,7 @@ class Cart extends StatefulWidget{
             price: controller.total,
             shipping: 200,
             onPressed: () {},
-            itemsnum: controller.cart.value.length, 
+            itemsnum: controller.cart.length, 
           )
 
       ),
@@ -55,9 +55,9 @@ class Cart extends StatefulWidget{
       Obx(() {
         return controller.cart.isEmpty ? Center(child: Lottie.asset("animation/Animation7.json",)):ListView.builder(
           padding: EdgeInsets.only(top: 10, right: 15, left: 15, bottom: 15),
-          itemCount: controller.cart.value.length, 
+          itemCount: controller.cart.length, 
           itemBuilder: (BuildContext context, int index) {
-            var item = controller.cart.value[index];
+            var item = controller.cart[index];
             var count = controller.itemcount[item["id"].toString()] ?? 0;
 
             return SizedBox(

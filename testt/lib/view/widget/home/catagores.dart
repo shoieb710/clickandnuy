@@ -1,11 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:testt/controller/ath/home_controlar.dart';
-import 'package:testt/controller/item_page_contrlollar.dart';
-// import 'package:testt/core/constant/catagorylist.dart';
+import 'package:testt/controller/home_controlar.dart';
 import 'package:testt/core/constant/color1.dart';
-import 'package:testt/core/constant/itemslist.dart';
 
 
 
@@ -18,21 +15,8 @@ class CatagoresBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Map<dynamic,dynamic>> itemlist=[];
-     List index=[];
-  List check(int cat){
-      itemlist=[];
-      index=[];
-      for(int i=0; i < allproducts.length;i++){
-        if(cat == allproducts[i]["id"]){
-          itemlist.add(allproducts[i]);
-          index.add(i);
-        }
-      } 
-      return itemlist;
-    }
+
     HomePageControlarImp controller = Get.put(HomePageControlarImp());
-    // ItemsControllerimp icontroller = Get.put(ItemsControllerimp());
     return Container(
        padding: EdgeInsets.symmetric(vertical: 10),
        height: 130,
@@ -41,7 +25,7 @@ class CatagoresBuilder extends StatelessWidget {
                 itemBuilder: (context, i) {
                   return InkWell(
                     onTap: () {
-                       controller.gotoitems(catagores, i, check(i));
+                       controller.gotoitems(catagores, i);
                       //  icontroller.getdata();
                     },
                     child: Column(
